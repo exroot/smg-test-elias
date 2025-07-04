@@ -11,13 +11,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "page_servicios_smg_template_qee9PG": {
+      "type": "page-servicios-smg-template",
+      "name": "Lista de Servicios SMG",
+      "settings": {
+        "featured_collection": "",
+        "title": "Nuestros Servicios"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "page_servicios_smg_template_qee9PG"
   ]
 }
