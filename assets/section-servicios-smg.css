@@ -1,0 +1,50 @@
+/* assets/section-servicios-smg.css */
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.servicio-card {
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.servicio-title {
+  margin-top: 0;
+}
+
+.servicio-description {
+  flex-grow: 1; /* Esto hace que la descripción ocupe el espacio disponible y alinea los precios/botones abajo */
+  margin-bottom: 1rem;
+}
+
+.servicio-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-js {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-js:hover {
+  background-color: #333333;
+}

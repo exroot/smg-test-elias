@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-servicios-smg-template"
+    },
+    "reviews": {
+      "type": "page-servicios-smg-reviews"
+    }
+  },
+  "order": ["main", "reviews"]
+}

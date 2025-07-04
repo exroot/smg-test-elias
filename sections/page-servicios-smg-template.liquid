@@ -1,0 +1,62 @@
+{{ 'section-servicios-smg.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <h2 class="title">{{ section.settings.title }}</h2>
+
+  <div class="servicios-grid">
+    {%- assign collection = collections[section.settings.featured_collection] -%}
+
+    {% for product in collection.products %}
+      <div class="servicio-card">
+        <h3 class="servicio-title">{{ product.title }}</h3>
+        
+        <div class="servicio-description">
+          {{ product.description }}
+        </div>
+        
+        <div class="servicio-price">
+          {{ product.price | money }}
+        </div>
+        
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          
+          <button 
+            type="button" 
+            class="add-to-cart-js" 
+            data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+            Añadir al Carrito
+          </button>
+        </form>
+
+      </div>
+    {% else %}
+      <p>Por favor, selecciona una colección en el personalizador de temas o añade productos a la colección seleccionada.</p>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Lista de Servicios",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Selecciona la colección de servicios"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Nuestros Servicios"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lista de Servicios SMG"
+    }
+  ]
+}
+{% endschema %}
