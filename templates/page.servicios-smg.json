@@ -21,7 +21,7 @@
       "type": "page-servicios-smg-template",
       "name": "Lista de Servicios SMG",
       "settings": {
-        "featured_collection": "",
+        "featured_collection": "nuestros-servicios",
         "title": "Nuestros Servicios"
       }
     }
