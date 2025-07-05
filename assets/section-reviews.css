@@ -1,0 +1,57 @@
+.reviews-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.review-name {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.review-stars {
+  color: #ffc107; /* Un color dorado para las estrellas */
+  margin-bottom: 1rem;
+}
+
+.review-stars .icon-star {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.review-comment {
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+
+.review-comment p {
+  margin: 0;
+}

@@ -1,0 +1,113 @@
+{{ 'section-reviews.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width reviews-section">
+  <h2 class="title">{{ section.settings.title }}</h2>
+
+  <div class="reviews-grid">
+    {%- comment -%}
+      Iniciamos un bucle a través de los 'blocks' de la sección.
+      Cada 'bloque' representa una review que el usuario ha añadido en el personalizador.
+    {%- endcomment -%}
+    {% for block in section.blocks %}
+      <div class="review-card" {{ block.shopify_attributes }}>
+        {%- comment -%}
+          Mostramos la imagen del cliente solo si ha sido seleccionada.
+          El filtro 'image_url' nos permite especificar un tamaño para optimizar la carga.
+        {%- endcomment -%}
+        {% if block.settings.client_image != blank %}
+          <img 
+            src="{{ block.settings.client_image | image_url: width: 160 }}" 
+            alt="Foto de {{ block.settings.client_name | escape }}" 
+            class="review-image"
+            width="80"
+            height="80"
+            loading="lazy">
+        {% endif %}
+        
+        <h3 class="review-name">{{ block.settings.client_name | escape }}</h3>
+        
+        <div class="review-stars" role="img" aria-label="{{ block.settings.stars }} de 5 estrellas">
+          {%- comment -%}
+            Hacemos un pequeño bucle para imprimir un icono de estrella
+            por cada número de estrellas que el usuario seleccionó (de 1 a 5).
+          {%- endcomment -%}
+          {% for i in (1..block.settings.stars) %}
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-star" viewBox="0 0 20 20"><path d="M10 1.3l2.388 6.722h6.723l-5.54 4.217 2.39 6.722-5.54-4.216-5.54 4.216 2.388-6.722-5.54-4.217h6.723l2.39-6.722z" fill="currentColor"/></svg>
+          {% endfor %}
+        </div>
+        
+        <blockquote class="review-comment">
+          <p>"{{ block.settings.comment | escape }}"</p>
+        </blockquote>
+      </div>
+    {% else %}
+      {%- comment -%}
+        Este bloque 'else' se muestra si no hay ningún bloque de review añadido.
+        Es un mensaje útil para el comerciante.
+      {%- endcomment -%}
+      <p>Aún no hay reviews. Añade algunas desde el personalizador de temas.</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sección de Reviews",
+  "tag": "section",
+  "class": "reviews-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Lo que dicen nuestros clientes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "client_image",
+          "label": "Foto del Cliente"
+        },
+        {
+          "type": "text",
+          "id": "client_name",
+          "label": "Nombre del Cliente",
+          "default": "Nombre del Cliente"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "unit": "★",
+          "label": "Estrellas",
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "comment",
+          "label": "Comentario",
+          "default": "<p>Un comentario excelente sobre el servicio.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sección de Reviews",
+      "blocks": [
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{% endschema %}
