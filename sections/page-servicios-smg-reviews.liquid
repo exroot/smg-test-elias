@@ -37,7 +37,7 @@
         </div>
         
         <blockquote class="review-comment">
-          <p>"{{ block.settings.comment | escape }}"</p>
+            {{ block.settings.comment }}
         </blockquote>
       </div>
     {% else %}
@@ -94,7 +94,7 @@
           "type": "richtext",
           "id": "comment",
           "label": "Comentario",
-          "default": "Un comentario excelente sobre el servicio."
+          "default": "<p>Un comentario excelente sobre el servicio.</p>"
         }
       ]
     }
