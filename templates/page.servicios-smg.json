@@ -24,10 +24,49 @@
         "featured_collection": "nuestros-servicios",
         "title": "Nuestros Servicios"
       }
+    },
+    "page_servicios_smg_reviews_NA6WWW": {
+      "type": "page-servicios-smg-reviews",
+      "blocks": {
+        "review_JyQ74w": {
+          "type": "review",
+          "settings": {
+            "client_name": "Nombre del Cliente",
+            "stars": 5,
+            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+          }
+        },
+        "review_GhEFVQ": {
+          "type": "review",
+          "settings": {
+            "client_name": "Nombre del Cliente",
+            "stars": 5,
+            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+          }
+        },
+        "review_H79K3D": {
+          "type": "review",
+          "settings": {
+            "client_name": "Nombre del Cliente",
+            "stars": 5,
+            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "review_JyQ74w",
+        "review_GhEFVQ",
+        "review_H79K3D"
+      ],
+      "name": "Sección de Reviews",
+      "settings": {
+        "title": "Lo que dicen nuestros clientes"
+      }
     }
   },
   "order": [
     "main",
-    "page_servicios_smg_template_qee9PG"
+    "page_servicios_smg_template_qee9PG",
+    "page_servicios_smg_reviews_NA6WWW"
   ]
 }
