@@ -31,25 +31,28 @@
         "review_JyQ74w": {
           "type": "review",
           "settings": {
+            "client_image": "shopify://shop_images/user1.png",
             "client_name": "Nombre del Cliente",
             "stars": 5,
-            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+            "comment": "<p>Excelente servicio, puedo recomendarlos plenamente.</p>"
           }
         },
         "review_GhEFVQ": {
           "type": "review",
           "settings": {
+            "client_image": "shopify://shop_images/user2.png",
             "client_name": "Nombre del Cliente",
             "stars": 5,
-            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+            "comment": "<p>Facilitó todo mi trabajo y cumplieron con creces mis expectativas.</p>"
           }
         },
         "review_H79K3D": {
           "type": "review",
           "settings": {
+            "client_image": "shopify://shop_images/user3.png",
             "client_name": "Nombre del Cliente",
             "stars": 5,
-            "comment": "<p>Un comentario excelente sobre el servicio.</p>"
+            "comment": "<p>Profesionales de la más alta calidad, un gusto trabajar con ellos.</p>"
           }
         }
       },
