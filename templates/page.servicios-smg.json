@@ -32,7 +32,7 @@
           "type": "review",
           "settings": {
             "client_image": "shopify://shop_images/user1.png",
-            "client_name": "Nombre del Cliente",
+            "client_name": "John Doe",
             "stars": 5,
             "comment": "<p>Excelente servicio, puedo recomendarlos plenamente.</p>"
           }
@@ -41,7 +41,7 @@
           "type": "review",
           "settings": {
             "client_image": "shopify://shop_images/user2.png",
-            "client_name": "Nombre del Cliente",
+            "client_name": "Mary Smith",
             "stars": 5,
             "comment": "<p>Facilitó todo mi trabajo y cumplieron con creces mis expectativas.</p>"
           }
