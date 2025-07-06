@@ -50,7 +50,7 @@
           "type": "review",
           "settings": {
             "client_image": "shopify://shop_images/user3.png",
-            "client_name": "Nombre del Cliente",
+            "client_name": "Carlos Pérez",
             "stars": 5,
             "comment": "<p>Profesionales de la más alta calidad, un gusto trabajar con ellos.</p>"
           }
