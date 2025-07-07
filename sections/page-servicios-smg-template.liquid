@@ -1,3 +1,17 @@
+<script>
+  window.smgConfig = {
+    giftProductVariantId: null
+  };
+
+  {%- for product in collections.all.products -%}
+    {%- if product.tags contains 'Regalo' -%}
+      window.smgConfig.giftProductVariantId = {{ product.first_available_variant.id }};
+      window.smgConfig.giftProductObject = {{ product | json }};
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+</script>
 {{ 'section-servicios-smg.css' | asset_url | stylesheet_tag }}
 
 <div class="page-width">
@@ -24,8 +38,11 @@
           <button 
             type="button" 
             class="add-to-cart-js" 
-            data-variant-id="{{ product.selected_or_first_available_variant.id }}">
-            Añadir al Carrito
+            data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+            disabled
+            >
+            
+            Cargando...
           </button>
         </form>
 
