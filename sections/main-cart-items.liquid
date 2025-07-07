@@ -102,7 +102,15 @@
                         <p class="caption-with-letter-spacing">{{ item.product.vendor }}</p>
                       {%- endif -%}
 
-                      <a href="{{ item.url }}" class="cart-item__name h4 break">{{ item.product.title | escape }}</a>
+                      <a href="{{ item.url }}" class="cart-item_data cart-item__name h4 break"  
+                        data-variant-id="{{ item.variant.id }}"
+                        data-quantity="{{ item.quantity }}"
+                        data-product-type="{{ item.product.type }}"  
+                        {% if item.product.tags contains 'Regalo' %}
+                          data-gift-variant-id="{{ item.variant.id }}"
+                        {% endif %}
+                        {% if item.product.tags contains 'Regalo' %}data-is-gift="true"{% endif %}
+                      >{{ item.product.title | escape }}</a>
 
                       {%- if item.original_price != item.final_price -%}
                         <div class="cart-item__discounted-prices">
@@ -240,6 +248,9 @@
                                 {{- 'icon-info.svg' | inline_asset_content -}}
                               </button>
                             {%- endif -%}
+                            {%- if item.product.type == 'Servicio' or item.product.tags contains 'Regalo' -%}
+                              <div class="locked-quantity">1</div>
+                            {%- else -%}
                             <quantity-input class="quantity cart-quantity">
                               <button class="quantity__button" name="minus" type="button">
                                 <span class="visually-hidden">
@@ -277,21 +288,19 @@
                                 </span>
                               </button>
                             </quantity-input>
+                          {%- endif -%}
                           </div>
-                          <cart-remove-button
-                            id="Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <a
-                              href="{{ item.url_to_remove }}"
-                              class="button button--tertiary"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                            >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </a>
-                          </cart-remove-button>
+                          {%- unless item.product.type == 'Merchadising' or item.product.tags contains 'Regalo' -%}
+                            <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                              <a href="{{ item.url_to_remove }}" class="button button--tertiary cart-item-remove-btn is-loading" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"  
+                                data-variant-id="{{ item.variant.id }}"
+                                data-quantity="{{ item.quantity }}"
+                                data-product-type="{{ item.product.type }}"
+                              >
+                                {{ 'icon-remove.svg' | inline_asset_content | replace: '<svg', '<svg class="svg-wrapper"' }}
+                              </a>
+                            </cart-remove-button>
+                          {%- endunless -%}
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
