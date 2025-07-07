@@ -349,3 +349,9 @@ cart-remove-button .icon-remove {
     padding-left: 0;
   }
 }
+
+.is-loading {
+  pointer-events: none; /* Hace que el elemento no sea clicable */
+  cursor: wait; /* Muestra un cursor de espera */
+  opacity: 0.6; /* Lo hace visualmente menos prominente */
+}
